@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>BBS</title>
+	<link rel="stylesheet" href="https://cdn.rawgit.com/mblode/marx/master/css/marx.min.css">
+	<style>
+		span.small{
+			color: gray;
+			font-size: 0.6rem;
+		}
+	</style>
+</head>
+<body>
+	
+	<main id="contents">
+		<h1>Golang - Goji - Bolt stack BBS</h1>
+		<input type="text" v-model="formContents"><button v-on="click: createPost(formContents)">Post</button>
+		
+		<ul>
+			<li v-repeat="post : posts">
+				{{post.Contents}} - <span class="small">{{post.PostId}}</span>
+			</li>
+		</ul>
+	</main>
+	
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/0.12.15/vue.min.js"></script>
+	<script src="superagent.js"></script>
+	<script src="index.js"></script>
+	
+	
+</body>
+</html>
