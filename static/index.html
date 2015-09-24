@@ -15,8 +15,10 @@
 	
 	<main id="contents">
 		<h1>Golang - Goji - Bolt stack BBS</h1>
-		<input type="text" v-model="formContents"><button v-on="click: createPost(formContents)">Post</button>
-		
+		<form onsubmit="return false;" v-on="submit: createPost(formContents)">
+			<input type="text" v-model="formContents">
+			<button v-attr="disabled: formContents.length === 0" type="submit">Post</button>
+		</form>
 		<ul>
 			<li v-repeat="post : posts">
 				{{post.Contents}} - <span class="small">{{post.PostId}}</span>

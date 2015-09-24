@@ -8,6 +8,10 @@ new Vue({
 	},
 	methods: {
 		createPost: function (contents) {
+			if(contents.length === 0){
+				return false;
+			}
+			
 			var self = this;
 			request.post("/api/posts/")
 				.type('form')
