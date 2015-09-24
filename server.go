@@ -25,11 +25,12 @@ func main() {
         log.Fatal(err)
     }
     
-    insert(db)
     db.Update(func(tx *bolt.Tx) error {
         tx.CreateBucketIfNotExists([]byte("MyBucket"))
         return nil
     });
+
+    insert(db)
     
     db.View(func(tx *bolt.Tx) error {
         b := tx.Bucket([]byte("MyBucket"))
